@@ -36,7 +36,7 @@ export default function Home() {
       >
         Upload File
       </Button>
-      <Card className="p-3 w-[900px]">
+      <Card className="p-3 w-[950px]">
         <DataTable data={documents} columns={columns} />
       </Card>
 

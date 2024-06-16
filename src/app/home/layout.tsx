@@ -11,7 +11,9 @@ export default function Layout({
 }>) {
   return (
     <DocumentsProvider>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      <QueryClientProvider client={queryClient}>
+        <div className="p-4">{children}</div>
+      </QueryClientProvider>
     </DocumentsProvider>
   );
 }
