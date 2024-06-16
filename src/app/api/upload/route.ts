@@ -9,17 +9,16 @@ export async function POST(req: NextRequest) {
     const file = formData.get('file') as File;
     const description = formData.get('description') as string;
     const uploader = formData.get('uploader') as string;
+    const fileName = formData.get('fileName') as string;
 
     if (!file) {
       return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
     }
 
-    const fileName = `${Date.now()}-${file.name}`;
 
     const { data: storageRes, error: storageError } = await supabase.storage
       .from('uploads')
       .upload(fileName, file);
-
       
     if (storageError) {
       return NextResponse.json({ error: storageError.message }, { status: 500 });

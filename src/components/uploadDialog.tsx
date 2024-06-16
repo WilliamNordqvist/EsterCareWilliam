@@ -33,9 +33,7 @@ export const UploadDialogContent = ({ close }: Props) => {
     reset: resetUploadFile,
     isPending: upLoadFileLoading,
   } = useMutation({
-    mutationFn: (formData: FormData) => {
-      return uploadFileService(formData);
-    },
+    mutationFn: (formData: FormData) => uploadFileService(formData),
     onSuccess: (res) => {
       setUploadedFile(null);
       setUploadedFileName('');
@@ -58,6 +56,7 @@ export const UploadDialogContent = ({ close }: Props) => {
     const formData = new FormData();
     formData.append('file', uploadedFile);
     formData.append('description', description);
+    formData.append('fileName', uploadedFileName);
     formData.append('uploader', uploader);
     upLoadFile(formData);
   };
