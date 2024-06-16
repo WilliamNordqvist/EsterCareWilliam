@@ -1,14 +1,15 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import Image from 'next/image';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import Image from 'next/image';
 // import { supabase } from '../../lib/supabase';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
 export default function App() {
   const [email, setEmail] = useState('');

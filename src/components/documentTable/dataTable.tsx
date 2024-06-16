@@ -1,14 +1,15 @@
-import * as React from 'react';
-
 import {
   ColumnDef,
-  SortingState,
   flexRender,
   getCoreRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  SortingState,
   useReactTable,
 } from '@tanstack/react-table';
+import * as React from 'react';
+import { useEffect } from 'react';
+
 import {
   Table,
   TableBody,
@@ -17,9 +18,7 @@ import {
   TableHeader,
   TableRow,
 } from '../ui/table';
-
 import { DataTablePagination } from './pagination';
-import { useEffect } from 'react';
 
 interface DataTableProps<FileRecord, TValue> {
   columns: ColumnDef<FileRecord, TValue>[];

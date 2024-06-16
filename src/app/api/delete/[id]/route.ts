@@ -3,14 +3,17 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '../../../../../lib/supabase';
 
 type Props = {
-    params: { id: string };
-}
+  params: { id: string };
+};
 
-export async function DELETE(req: NextRequest, { params }:Props) {
+export async function DELETE(req: NextRequest, { params }: Props) {
   const { id } = params;
 
   if (!id) {
-    return NextResponse.json({ error: 'No document ID provided' }, { status: 400 });
+    return NextResponse.json(
+      { error: 'No document ID provided' },
+      { status: 400 }
+    );
   }
 
   try {
@@ -29,7 +32,10 @@ export async function DELETE(req: NextRequest, { params }:Props) {
       .remove([document.filename]);
 
     if (storageError) {
-      return NextResponse.json({ error: storageError.message }, { status: 500 });
+      return NextResponse.json(
+        { error: storageError.message },
+        { status: 500 }
+      );
     }
 
     const { error: dbError } = await supabase
@@ -41,13 +47,13 @@ export async function DELETE(req: NextRequest, { params }:Props) {
       return NextResponse.json({ error: dbError.message }, { status: 500 });
     }
 
-    const { data: allData } = await supabase
-      .from('files')
-      .select('*');
+    const { data: allData } = await supabase.from('files').select('*');
 
-      return NextResponse.json(allData || [], { status: 200 });
-      
+    return NextResponse.json(allData || [], { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: (error as Error).message }, { status: 500 });
+    return NextResponse.json(
+      { error: (error as Error).message },
+      { status: 500 }
+    );
   }
 }

@@ -1,14 +1,13 @@
-import { FileRecord } from "@/app/types";
-import axios from "axios";
+import axios from 'axios';
+
+import { FileRecord } from '@/app/types';
 
 export const uploadFileService = async (formData: FormData) => {
-    const {data} = await axios.post<FileRecord[]>('/api/upload', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
+  const { data } = await axios.post<FileRecord[]>('/api/upload', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
 
-    return data;
-  };
-  
-  
+  return data;
+};

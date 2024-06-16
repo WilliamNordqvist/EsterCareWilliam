@@ -1,4 +1,5 @@
 import { AcceptedFiles } from '@/app/types';
+
 import { Badge } from '../ui/badge';
 
 type Props = {

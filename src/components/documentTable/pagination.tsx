@@ -4,10 +4,11 @@ import {
   DoubleArrowLeftIcon,
   DoubleArrowRightIcon,
 } from '@radix-ui/react-icons';
+import { Table } from '@tanstack/react-table';
+
+import { cn } from '@/lib/utils';
 
 import { Button } from '../ui/button';
-import { Table } from '@tanstack/react-table';
-import { cn } from '@/lib/utils';
 
 interface DataTablePaginationProps<TData> {
   table: Table<TData>;

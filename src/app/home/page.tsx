@@ -1,16 +1,16 @@
 'use client';
 
+import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 
+import { getColumns } from '@/components/documentTable/columns';
+import { DataTable } from '@/components/documentTable/dataTable';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { DataTable } from '@/components/documentTable/dataTable';
 import { Dialog } from '@/components/ui/dialog';
 import { UploadDialogContent } from '@/components/uploadDialog';
-import { getColumns } from '@/components/documentTable/columns';
-import { getDocumentsService } from '@/services/getDocumentsService';
 import { useDocuments } from '@/context/documentContext';
-import { useQuery } from '@tanstack/react-query';
+import { getDocumentsService } from '@/services/getDocumentsService';
 
 export default function Home() {
   const { documents, setDocuments } = useDocuments();

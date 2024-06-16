@@ -8,7 +8,7 @@ export const FileUploadInput = ({ onFileUpload }: Props) => {
   const [dragging, setDragging] = useState(false);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    let file = event.target.files ? event.target.files[0] : null;
+    const file = event.target.files ? event.target.files[0] : null;
     onFileUpload(file!);
     event.target.value = '';
   };

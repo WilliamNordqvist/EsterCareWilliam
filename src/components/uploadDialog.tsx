@@ -1,3 +1,13 @@
+import { useMutation } from '@tanstack/react-query';
+import { CircleX } from 'lucide-react';
+import { LoaderCircle } from 'lucide-react';
+import React, { useState } from 'react';
+
+import { useDocuments } from '@/context/documentContext';
+import { uploadFileService } from '@/services/uploadService';
+
+import { FileUploadInput } from './fileUploadInput';
+import { Button } from './ui/button';
 import {
   DialogContent,
   DialogDescription,
@@ -5,17 +15,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from './ui/dialog';
-import React, { useState } from 'react';
-
-import { Button } from './ui/button';
-import { CircleX } from 'lucide-react';
-import { FileUploadInput } from './fileUploadInput';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
-import { LoaderCircle } from 'lucide-react';
-import { uploadFileService } from '@/services/uploadService';
-import { useDocuments } from '@/context/documentContext';
-import { useMutation } from '@tanstack/react-query';
 
 type Props = {
   close: () => void;
